@@ -103,7 +103,19 @@ $C = A-B = \{x^k | x^k = x_i^{k_i}-x_j^{k_j}, якщо k_i>k_j, 0 \; otherwise \
 $ G(V,E)=\left\langle V,E\right\rangle ,\quad V\neq \varnothing ,\quad E\subseteq V\times V,\quad \left\{v,v\right\}\notin E,\quad v\in V$
 \end{center}
 \end{definition}
-\newpage
+
+\begin{definition}
+Дводольний граф або біграф в теорії графів - це граф, множину вершин якого можна розбити на дві долі таким чином, що кожне ребро графу з'єднує кожну вершину з однієї долі з якоюсь вершиною з іншої долі, тобто не існує ребер між вершинами однієї і тієї ж частини долі. Неорієнтований граф $G=(W,E)$ називається дводольним, якщо множину його вершин можна розбити на дві підмножини $ W = U \cup V $ так, що:
+\begin{itemize}
+\item жодна вершина в $U$ не з'єднана з вершинами в $U$
+\item жодна вершина в $V$ не з'єднана з вершинами в $V$
+\end{itemize}
+
+У цьому випадку підмножини вершин $U$ та $V$ називаються частками дводольного графа $G$.
+\end{definition}
+
+
+
 \begin{example}
 Розглянемо приклад простого графу: \\ $ V = \{1,2,3,4,5,6\}$ \\ $ E = \{ (1,2), (1,5), (5,2), (5,4), (2,3), (3,4), (4,6) \} $
 
@@ -122,8 +134,35 @@ $ G(V,E)=\left\langle V,E\right\rangle ,\quad V\neq \varnothing ,\quad E\subsete
 
 \end{tikzpicture}
 \end{center}
-
 \end{example}
+
+\begin{example}
+Розглянемо приклад дводольного графу: \\ $ V = \{1,2,3,4,5,6\}$ \\ $ E = \{ (1,4), (1,5), (2,4), (2,6), (3,5), (3,6) \} $
+
+\begin{center}
+\begin{tikzpicture}[node distance={40mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$1$}; 
+\node[main] (2) [right of=1] {$2$}; 
+\node[main] (3) [right of=2] {$3$}; 
+\node[main] (4) [below of=1] {$4$}; 
+\node[main] (5) [below of=2] {$5$}; 
+\node[main] (6) [below of=3] {$6$}; 
+
+\draw (1) -- (4); 
+\draw (1) -- (5); 
+\draw (2) -- (4); 
+\draw (2) -- (6); 
+\draw (3) -- (5); 
+\draw (3) -- (6); 
+\end{tikzpicture} 
+\end{center}
+У даному випадку ми можемо розділити множину вершин на дві:
+\begin{center}
+$V = U \cup P, P = \{1,2,3\}$ та $U = \{4,5,6\}$.
+\end{center}
+Немає жодного ребра яке пов'язує вершини множин $P$ із вершинами множини $P$, аналогічно для множини $U$.
+\end{example}
+
 
 
 \newpage
