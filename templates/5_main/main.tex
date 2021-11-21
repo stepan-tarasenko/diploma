@@ -664,17 +664,581 @@ v = 3
 $
 \end{center}
 
+\section{Частковий випадок $A = \{a^2, b^2, c\}$}
+
+Розглянемо наступний випадок мультимножини виду $A = \{a^2, b^2, c\}$, яка задовольняє умови {\bf Теореми 1}. На елементи накладаються деякі обмеження, а саме потужність усіх елементів рівна, а один єдиний елемент має потужність одиниця.
+
+\begin{example}
+
+Розглянемо множину $ A = \{a^2, b^2, c\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
+
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$ac$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$b^2$}; 
+
+\node[main] (6) [below of=1] {$a^2b$}; 
+\node[main] (7) [below of=2] {$a^2c$}; 
+\node[main] (8) [below of=3] {$b^2a$}; 
+\node[main] (9) [below of=4] {$b^2c$}; 
+\node[main] (10) [below of=5] {$abc$}; 
+
+ 
+
+\draw (1) -- node[pos=0.25, left] {$x$} (6); 
+\draw (1) -- node[pos=0.4, above] {$y$} (7); 
+
+\draw (2) -- node[pos=0.4, right] {$m$}(6); 
+\draw (2) -- node[pos=0.4, above] {$n$}(8); 
+\draw (2) -- node[pos=0.4, right] {$l$}(10); 
 
 
-\section{Частковий випадок $A = \{a^m, b, c, d\}$}
+\draw (3) -- node[pos=0.4, right] {$k$}(7); 
+\draw (3) -- node[pos=0.4, above] {$p$}(10); 
+
+\draw (4) -- node[pos=0.1, right] {$t$}(9); 
+\draw (4) -- node[pos=0.4, above]  {$v$}(10); 
+
+\draw (5) -- node[pos=0.4, right] {$i$}(8); 
+\draw (5) -- node[pos=0.4, above] {$o$}(9); 
+
+\end{tikzpicture} 
+\end{center}
+\end{example}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{a^2,b\}| = |\{a^2,c\}| = |\{a,b,c\}| = ... $
+\\
+$ \overline{deg} = |A| - 2 = 3 $, $ |A| = 5, |\{a^2\}| = |\{a,b\}| = |\{b,c\}| =  |\{a,c\}| = ... = 2 $
+\end{center}
+Розв'яжемо систему лінійних рівнянь за допомогою метода Гауса, запрограмованого на мові програмування Java. У програму треба ввести коефіцієнти при кожній змінній та рівняння по кожній змінній. Нижче записана система лінійних рівнянь та її розв'язок. Як можна побачити усі коефіцієнти невід'ємні та задовольняють умови {\bf Теореми 1}.
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 3 \\
+x + m = 3 \\ 
+k + y = 3 \\
+m + n + l = 3 \\
+p + k = 3 \\
+n + i = 3 \\
+t + v = 3 \\ 
+t + b = 3 \\
+p + l + v = 3 \\ 
+i + l = 3 \\
+t + o = 3 \\
+  \end{tabular}
+\Rightarrow 
+$
+$\left \{
+\begin{tabular}{ccc}
+x = 2 \\
+y = 1 \\
+m = 1 \\ 
+p = 1 \\
+n = 2 \\
+k = 2 \\
+v = 2 \\ 
+t = 1 \\
+l = 0 \\ 
+i = 1 \\
+o = 2 \\
+  \end{tabular}
+$
+\end{center}
+
+Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
+
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$ac$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$b^2$}; 
+
+\node[main] (6) [below of=1] {$a^2b$}; 
+\node[main] (7) [below of=2] {$a^2c$}; 
+\node[main] (8) [below of=3] {$b^2a$}; 
+\node[main] (9) [below of=4] {$b^2c$}; 
+\node[main] (10) [below of=5] {$abc$}; 
+
+ 
+
+\draw (1) -- node[pos=0.25, left] {$2$} (6); 
+\draw (1) -- node[pos=0.4, above] {$1$} (7); 
+
+\draw (2) -- node[pos=0.4, right] {$1$}(6); 
+\draw (2) -- node[pos=0.4, above] {$2$}(8); 
+\draw (2) -- node[pos=0.4, right] {$0$}(10); 
+
+
+\draw (3) -- node[pos=0.4, right] {$2$}(7); 
+\draw (3) -- node[pos=0.4, above] {$1$}(10); 
+
+\draw (4) -- node[pos=0.1, right] {$1$}(9); 
+\draw (4) -- node[pos=0.4, above]  {$2$}(10); 
+
+\draw (5) -- node[pos=0.4, right] {$1$}(8); 
+\draw (5) -- node[pos=0.4, above] {$2$}(9); 
+
+\end{tikzpicture} 
+\end{center}
+
+
+\section{Частковий випадок $A = \{a^2, b^2, c^2\}$}
+Розглянемо наступний випадок мультимножини виду $A = \{a^2, b^2, c^2\}$, яка задовольняє умови {\bf Теореми 1}. На елементи накладаються деякі обмеження, а саме потужність усіх елементів рівна, оскільки при $ m = 1 $ висхідна множина втрачає мультимножинні властивості.
+
+\begin{example}
+
+Розглянемо множину $ A = \{a^2, b^2, c^2\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
+
+\begin{center}
+\begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$b^2$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$c^2$}; 
+\node[main] (6) [right of=5] {$ac$}; 
+
+\node[main] (7) [below of=1] {$a^2b$}; 
+\node[main] (8) [below of=2] {$a^2c$}; 
+\node[main] (9) [below of=3] {$b^2a$}; 
+\node[main] (10) [below of=4] {$b^2c$}; 
+\node[main] (11) [below of=5] {$c^2a$}; 
+\node[main] (12) [below of=6] {$c^2b$};
+\node[main] (13) [right of=12] {$abc$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$x$} (7); 
+\draw (1) -- node[pos=0.4, above] {$y$} (8); 
+
+\draw (2) -- node[pos=0.4, right] {$m$}(7); 
+\draw (2) -- node[pos=0.4, above] {$n$}(9); 
+
+\draw (3) -- node[pos=0.4, right] {$k$}(9); 
+\draw (3) -- node[pos=0.4, above] {$p$}(10); 
+
+\draw (4) -- node[pos=0.4, left] {$v$}(10); 
+\draw (4) -- node[pos=0.1, right] {$t$}(13); 
+
+\draw (5) -- node[pos=0.4, right] {$i$}(11); 
+\draw (5) -- node[pos=0.4, above] {$o$}(12); 
+
+\draw (6) -- node[pos=0.4, below] {$p$}(8); 
+\draw (6) -- node[pos=0.4, right] {$l$}(11); 
+\draw (6) -- node[pos=0.4, right] {$b$}(13); 
+
+
+\end{tikzpicture} 
+\end{center}
+\end{example}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{a^3\}| = |\{a^2,b\}| = |\{a^2,c\}| = |\{a,b,c\}| = ... $
+\\
+$ \overline{deg} = |A| - 2 = 4 $, $ |A| = 6, |\{a^2\}| = |\{a,b\}| = |\{b,c\}| =  |\{a,c\}| = ... = 2 $
+\end{center}
+Розв'яжемо систему лінійних рівнянь за допомогою метода Гауса, запрограмованого на мові програмування Java. У програму треба ввести коефіцієнти при кожній змінній та рівняння по кожній змінній. Нижче записана система лінійних рівнянь та її розв'язок. Як можна побачити усі коефіцієнти невід'ємні та задовольняють умови {\bf Теореми 1}.
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 4 \\
+x + m = 3 \\ 
+p + y = 3 \\
+m + n = 4 \\
+p + k = 4 \\
+k + p = 4 \\
+p + v = 3 \\ 
+t + b = 3 \\
+b + l + t = 4 \\ 
+i + l = 3 \\
+i + o = 4 \\
+y + t = 3 
+  \end{tabular}
+\Rightarrow 
+$
+$\left \{
+\begin{tabular}{ccc}
+x = 2 \\
+y = 2 \\
+m = 1 \\ 
+p = 1 \\
+n = 3 \\
+k = 3 \\
+v = 2 \\ 
+t = 1 \\
+b = 2 \\
+l = 1 \\ 
+i = 2 \\
+o = 2 \\
+  \end{tabular}
+$
+\end{center}
+
+Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
+
+\begin{center}
+\begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$b^2$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$c^2$}; 
+\node[main] (6) [right of=5] {$ac$}; 
+
+\node[main] (7) [below of=1] {$a^2b$}; 
+\node[main] (8) [below of=2] {$a^2c$}; 
+\node[main] (9) [below of=3] {$b^2a$}; 
+\node[main] (10) [below of=4] {$b^2c$}; 
+\node[main] (11) [below of=5] {$c^2a$}; 
+\node[main] (12) [below of=6] {$c^2b$};
+\node[main] (13) [right of=12] {$abc$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$2$} (7); 
+\draw (1) -- node[pos=0.4, above] {$2$} (8); 
+
+\draw (2) -- node[pos=0.4, right] {$1$}(7); 
+\draw (2) -- node[pos=0.4, above] {$3$}(9); 
+
+\draw (3) -- node[pos=0.4, right] {$3$}(9); 
+\draw (3) -- node[pos=0.4, above] {$1$}(10); 
+
+\draw (4) -- node[pos=0.4, left] {$2$}(10); 
+\draw (4) -- node[pos=0.1, right] {$1$}(13); 
+
+\draw (5) -- node[pos=0.4, right] {$2$}(11); 
+\draw (5) -- node[pos=0.4, above] {$2$}(12); 
+
+\draw (6) -- node[pos=0.4, below] {$1$}(8); 
+\draw (6) -- node[pos=0.4, right] {$1$}(11); 
+\draw (6) -- node[pos=0.4, right] {$2$}(13); 
+
+
+\end{tikzpicture} 
+\end{center}
+
+
+\section{Частковий випадок $A = \{a^3, b, c, d\}$}
+
+Розглянемо наступний випадок мультимножини виду $A = \{a^3, b, c, d\}$, яка задовольняє умови {\bf Теореми 1}. На елементи накладаються деякі обмеження, а саме потужність усіх елементів рівна, а кратність одного елемента три.
+
+\begin{example}
+
+Розглянемо множину $A = \{a^3, b, c, d\}$, збудуємо наповнення триелементного сімейства невключних одна в одну множин, які добудуємо до чотириелементного сімейства:
+
+\begin{center}
+\begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$b^2$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$c^2$}; 
+\node[main] (6) [right of=5] {$ac$}; 
+
+\node[main] (7) [below of=1] {$a^2b$}; 
+\node[main] (8) [below of=2] {$a^2c$}; 
+\node[main] (9) [below of=3] {$b^2a$}; 
+\node[main] (10) [below of=4] {$b^2c$}; 
+\node[main] (11) [below of=5] {$c^2a$}; 
+\node[main] (12) [below of=6] {$c^2b$};
+\node[main] (13) [right of=12] {$abc$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$x$} (7); 
+\draw (1) -- node[pos=0.4, above] {$y$} (8); 
+
+\draw (2) -- node[pos=0.4, right] {$m$}(7); 
+\draw (2) -- node[pos=0.4, above] {$n$}(9); 
+
+\draw (3) -- node[pos=0.4, right] {$k$}(9); 
+\draw (3) -- node[pos=0.4, above] {$p$}(10); 
+
+\draw (4) -- node[pos=0.4, left] {$v$}(10); 
+\draw (4) -- node[pos=0.1, right] {$t$}(13); 
+
+\draw (5) -- node[pos=0.4, right] {$i$}(11); 
+\draw (5) -- node[pos=0.4, above] {$o$}(12); 
+
+\draw (6) -- node[pos=0.4, below] {$p$}(8); 
+\draw (6) -- node[pos=0.4, right] {$l$}(11); 
+\draw (6) -- node[pos=0.4, right] {$b$}(13); 
+
+
+\end{tikzpicture} 
+\end{center}
+\end{example}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{a^3\}| = |\{a^2,b\}| = |\{a^2,c\}| = |\{a,b,c\}| = ... $
+\\
+$ \overline{deg} = |A| - 2 = 4 $, $ |A| = 6, |\{a^2\}| = |\{a,b\}| = |\{b,c\}| =  |\{a,c\}| = ... = 2 $
+\end{center}
+Розв'яжемо систему лінійних рівнянь за допомогою метода Гауса, запрограмованого на мові програмування Java. У програму треба ввести коефіцієнти при кожній змінній та рівняння по кожній змінній. Нижче записана система лінійних рівнянь та її розв'язок. Як можна побачити усі коефіцієнти невід'ємні та задовольняють умови {\bf Теореми 1}.
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 4 \\
+x + m = 3 \\ 
+p + y = 3 \\
+m + n = 4 \\
+p + k = 4 \\
+k + p = 4 \\
+p + v = 3 \\ 
+t + b = 3 \\
+b + l + t = 4 \\ 
+i + l = 3 \\
+i + o = 4 \\
+y + t = 3 
+  \end{tabular}
+\Rightarrow 
+$
+$\left \{
+\begin{tabular}{ccc}
+x = 2 \\
+y = 2 \\
+m = 1 \\ 
+p = 1 \\
+n = 3 \\
+k = 3 \\
+v = 2 \\ 
+t = 1 \\
+b = 2 \\
+l = 1 \\ 
+i = 2 \\
+o = 2 \\
+  \end{tabular}
+$
+\end{center}
+
+Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
+
+\begin{center}
+\begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$b^2$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$c^2$}; 
+\node[main] (6) [right of=5] {$ac$}; 
+
+\node[main] (7) [below of=1] {$a^2b$}; 
+\node[main] (8) [below of=2] {$a^2c$}; 
+\node[main] (9) [below of=3] {$b^2a$}; 
+\node[main] (10) [below of=4] {$b^2c$}; 
+\node[main] (11) [below of=5] {$c^2a$}; 
+\node[main] (12) [below of=6] {$c^2b$};
+\node[main] (13) [right of=12] {$abc$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$2$} (7); 
+\draw (1) -- node[pos=0.4, above] {$2$} (8); 
+
+\draw (2) -- node[pos=0.4, right] {$1$}(7); 
+\draw (2) -- node[pos=0.4, above] {$3$}(9); 
+
+\draw (3) -- node[pos=0.4, right] {$3$}(9); 
+\draw (3) -- node[pos=0.4, above] {$1$}(10); 
+
+\draw (4) -- node[pos=0.4, left] {$2$}(10); 
+\draw (4) -- node[pos=0.1, right] {$1$}(13); 
+
+\draw (5) -- node[pos=0.4, right] {$2$}(11); 
+\draw (5) -- node[pos=0.4, above] {$2$}(12); 
+
+\draw (6) -- node[pos=0.4, below] {$1$}(8); 
+\draw (6) -- node[pos=0.4, right] {$1$}(11); 
+\draw (6) -- node[pos=0.4, right] {$2$}(13); 
+
+
+\end{tikzpicture} 
+\end{center}
+
+
+
 \section{Статистичний аналіз розміру антиланцюга}
 
+Нехай дана мультимножина $M = \{a_1^{m_1}, ... , a_n^{m_n}\} $. Підрахуємо кількість усіх можливих підмножин зі зваженою потужністю $k$:
+\begin{center}
+$ 0 \leq k \leq |M|= m_1 + ... + m_n$
+\end{center}
 
+Тоді будь-якій підмножині $ L \subseteq  M $ виду $\{a_1^{x_1}, ... , a_n^{x_n}\} $ ставимо у відповідність вектор:
+
+\begin{center}
+$ \overrightarrow{x} = (x_1, ..., x_n) $, де $0 \leq x_1 \leq m1, ..., 0 \leq x_n \leq m_n$.
+\end{center}
+
+Треба розв'язати підзадачу і знайти кількість векторів $ \overrightarrow{x} = (x_1, ..., x_n) $, які задовольняють умовам ($l$ - деяке число таке, що $0 \leq l \leq n$):
+
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x_1 + ... + x_n = k  \\
+0 \leq x_1 \leq m1, ..., 0 \leq x_l \leq m_l \\ 
+x_{l+1} = ... = x_n = 0 \\
+\end{tabular}
+$
+\end{center}
+
+Нехай $D_l^k$ - відповідь на підзадачу для заданих $l$ та $k$, тоді очевидно, що:
+
+\begin{center}
+$D_0^k = 1$, якщо $k=0$
+\\
+$D_0^k = 0$, якщо $k \neq 0$
+\end{center}
+
+Також очевидно, що:
+\begin{center}
+$D_{l+1}^k = D_l^k + D_l^{k-1} + ... + D_l^{k-m_{l+1}}$
+\end{center}
+
+У формулі наведеній вижче кожен доданок виду $D_l^{k-l}$ ставиться у відповідність підмножинам, в яких кратність елемента $a_{l+1}$ дорівнює $b$ ($0 \leq b \leq m_{l+1} $).
+\newpage
+Розглянемо простий випадок:
+\begin{center}
+$k \leq m_1,..., k \leq  m_n$
+\end{center}
+Тоді на вектор  $ \overrightarrow{x} = (x_1, ..., x_n) $ накладається лише одна умова:
+
+\begin{center}
+$x_1 + ... + x_n = k $, $x_1,...,x_n \in \mathbb {N} \cup \{0\}$
+\end{center}
+
+Перепишемо цю умову додавшидо кожного $x_i$ одиницю з лівої частини, та додавши $n$ з правої:
+\begin{center}
+$(x_1 + 1) ... + (x_n + 1) = k + n $
+\\
+$x_1,...,x_n \in \mathbb {N} \cup \{0\}$
+\end{center}
+
+А тепер перепишемо цю формулу зважаючи на нові позначення:
+\begin{center}
+$y_1 + ... + y_n = k + n$
+\\
+$y_1 = x_1 + 1, ..., y_n = x_n + 1$
+\\
+$y_1,...,y_n \in \mathbb {N}$
+\end{center}
+
+Представимо розбиття числа $k+n$ у суму $y_1 + ... + y_n$, як розріз полоски розміром $1 \times (k+n)$ на полоски розмірами $1 \times y_1,...,1 \times y_n$:
+
+\begin{example}
+Розглянемо рівняння $ y_1 + y_2 + y_3 = 5 $:
+\begin{center}
+$ 5 = 3 + 1 + 1 $
+\\
+$ 5 = 2 + 2 + 1 $
+\\
+$ 5 = 2 + 1 + 2 $
+\\
+$ 5 = 1 + 3 + 1 $
+\\
+$ 5 = 1 + 2 + 2 $
+\\
+$ 5 = 1 + 1 + 3 $
+\end{center}
+\end{example}
+
+Кожен переріз - це вибір $(n-1)$ розрізу з$(k+n-1)$ можливих, тобто:
+\begin{center}
+$C_{k+n-1}^{n-1}$
+\end{center}
+
+Як довести, що $D_n^{[|M|/2]}$ - найбільша (нестрого) з усіх $D_n^x (0 \leq x \leq |M|)$? Використовуючи індукцію по $n$ доведемо, що:
+\begin{center}
+$ D_n^0 \leq D_n^1 \leq ... \leq D_n^{[|M|/2]}$.
+\end{center}
+Очевидний факт, що $D_n^x = D_n^{|M|-x}$ - інверсія множини.
+
+\begin{proof}
+Якщо $k \leq [|M|/2]$, то $D_n^k \leq D_n^{k+1}$:
+\begin{center}
+$k = (n-1)/2$, тоді $D_n^k \leq D_n^{k+1}$
+\\
+$k \leq n/2 - 1$, тоді $D_n^k = D_{n-1}^k D_{n-1}^{k-1}$
+\end{center}
+Використаємо нерівність:
+\begin{center}
+$D_{n-1}^k + D_{n-1}^{k-1} \leq D_{n-1}^{k+1} + D_{n-1}^{k}$
+\end{center}
+Скоротивши отримаємо:
+\begin{center}
+$D_{n-1}^{k-1} \leq D_{n-1}^{k+1}$
+\end{center}
+
+Твердження індукції:
+\begin{center}
+$ D_n^0 \leq D_n^1 \leq ... \leq D_n^{[|M|/2]}$
+\end{center}
+
+Оскільки $k \leq n/2 - 1$, то $k \leq (n - 2)/2$, тоді $k < (n - 1)/2$.
+\begin{center}
+$D_{n-1}^{k} \leq D_{n-1}^{k-1}$
+\\
+$D_{n-1}^{k} < D_{n-1}^{k-1}$
+\end{center}
+
+Задекларуємо мультимножини:
+
+\begin{center}
+$M = \{a_1^{x_1}, ... , a_n^{x_n}\} $ 
+\\
+$\overline{M} = \{a_1^{x_1}, ... , a_{n-1}^{x_{n-1}}\} $ 
+\end{center}
+
+Нехай $D_{|M|}^k $ кількість $k$ елементних мультивибірок з $M$, тоді  $D_{|M|}^k =  D_{\overline{|M|}}^k + D_{\overline{|M|}}
+^{k-1} + ... + D_{\overline{|M|}}^{k-x} = 0  $, враховуючи, що $D_{|M|}^k  = D_{|M|}^{\overline{|M|} - k}$. 
+\\
+Доведення по індукції: $D_{|M|}^k  = D_{\overline{|M|}}^{k-b_n} + ... + D_{\overline{|M|}}^k$, де $\overline{M} = D \setminus {a_n^{b_n}}$.
+
+
+
+
+
+
+\end{proof}
 \newpage
 
 \chapter{Практичне застосування}
 
 \section{Теорія голосування}
+Система голосування на множині виду $M = \{a_1^{x_1}, ... , a_n^{x_n}\}$ - це така функція:
+
+\begin{center}
+$F = B(M) \rightarrow \{0,1\}$
+\\
+$ \forall A, B \subseteq M: A \subseteq B$, то $F(A) \leq F(B)$ 
+\\
+Де $B(M)$ - сімейство всіх мультипідмножин $L \subseteq M$
+\end{center}
+
+Звернемо увагу, що $F$ взаємно-однозначно задається набором "мінімальних прохідних підмножин":
+
+\begin{center}
+$F(L) = 1, L \subseteq M $
+\\
+$ \forall K \subset L: F(K) = 0$ 
+\end{center}
+
+Сімейство невкладених одна в одну множин має дуже важливе значення, оскільки представляє собою набір множин які неможливо порівняти між собою у рамках задачі теорії голосувань. Можливість мати на примітку множини, які задовольняють умови {\bf Теореми 1} є дуже важливим прикладним моментом, оскільки в теорїї голосувань ми будемо мати безпосередньо мати справу з цими множинами, а отже мати представлення про потужність та структуру таких множин є дуже важливим прикладним нюансом.
+
+Множина $M = \{a_1^{x_1}, ... , a_n^{x_n}\}$ може представляти партії, а кожен елемент $a_i$ - одиницю партії, тобто людину, яка може віддати свій голос. Кожна людина яка належить одній партії буде розлянута, як еквівалентна в рамках даної партії, тобто голоси таких виборчих одиниць є рівнозначними. Підсумуємо: множина $M = \{a_1^{x_1}, ... , a_n^{x_n}\}$, складається з партій $a_i$, а $x_i$ - це кількість виборчих одиниць у партії (людей).
+
 
 \section{Потоки у графах}
+
+У теорії алгоритмів та дослідженні операцій проблема максимального потоку включають пошук можливого потоку на графі через мережу потоків. Ця задача має дуже важливе значення, оскільки проблеми, які вирішуються за допомогою урівноваження графу, та пошуку найкоротшого та найдешевшого шляху дуже важливі у транспортних задачах.
+
+Проблему максимального потоку можна розглядати як окремий випадок більш складних проблем, таких як проблема циркуляції. Максимальне значення потоку дорівнює мінімальній пропускній здатності розрізу у мережі, як зазначено в мінімальному максимальному потоку. З точки зору задачі, яка розгядається у даній роботі, ми розглянемо частковий випадок транспортної задачі, де роль пунктів  заїзду (доставки) товарів відіграють долі двочасткового графу. Задача є виокремленою чатиною та є підмножиною загальних транспортих задач.
+
 
