@@ -935,40 +935,34 @@ $
 
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
-\node[main] (1) {$a^2$}; 
-\node[main] (2) [right of=1] {$ab$}; 
-\node[main] (3) [right of=2] {$b^2$}; 
-\node[main] (4) [right of=3] {$bc$}; 
-\node[main] (5) [right of=4] {$c^2$}; 
-\node[main] (6) [right of=5] {$ac$}; 
+\node[main] (1) {$a^3$}; 
+\node[main] (2) [right of=1] {$a^2b$}; 
+\node[main] (3) [right of=2] {$a^2c$}; 
+\node[main] (4) [right of=3] {$a^2d$}; 
+\node[main] (5) [right of=4] {$abc$}; 
+\node[main] (6) [right of=5] {$abd$}; 
+\node[main] (7) [right of=6] {$bdc$}; 
 
-\node[main] (7) [below of=1] {$a^2b$}; 
-\node[main] (8) [below of=2] {$a^2c$}; 
-\node[main] (9) [below of=3] {$b^2a$}; 
-\node[main] (10) [below of=4] {$b^2c$}; 
-\node[main] (11) [below of=5] {$c^2a$}; 
-\node[main] (12) [below of=6] {$c^2b$};
-\node[main] (13) [right of=12] {$abc$}; 
+\node[main] (8) [below of=1] {$a^3b$}; 
+\node[main] (9) [below of=2] {$a^3c$}; 
+\node[main] (10) [below of=3] {$a^3d$}; 
+\node[main] (11) [below of=4] {$abcd$}; 
  
 
-\draw (1) -- node[pos=0.25, left] {$x$} (7); 
-\draw (1) -- node[pos=0.4, above] {$y$} (8); 
+\draw (1) -- node[pos=0.25, left] {$x$} (8); 
+\draw (1) -- node[pos=0.4, above] {$y$} (9); 
+\draw (1) -- node[pos=0.4, above] {$z$} (10); 
 
-\draw (2) -- node[pos=0.4, right] {$m$}(7); 
-\draw (2) -- node[pos=0.4, above] {$n$}(9); 
+
+\draw (2) -- node[pos=0.4, right] {$m$}(8); 
 
 \draw (3) -- node[pos=0.4, right] {$k$}(9); 
-\draw (3) -- node[pos=0.4, above] {$p$}(10); 
 
 \draw (4) -- node[pos=0.4, left] {$v$}(10); 
-\draw (4) -- node[pos=0.1, right] {$t$}(13); 
 
 \draw (5) -- node[pos=0.4, right] {$i$}(11); 
-\draw (5) -- node[pos=0.4, above] {$o$}(12); 
-
-\draw (6) -- node[pos=0.4, below] {$p$}(8); 
-\draw (6) -- node[pos=0.4, right] {$l$}(11); 
-\draw (6) -- node[pos=0.4, right] {$b$}(13); 
+\draw (6) -- node[pos=0.4, below] {$p$}(11); 
+\draw (7) -- node[pos=0.4, below] {$s$}(11); 
 
 
 \end{tikzpicture} 
@@ -977,43 +971,34 @@ $
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
 \begin{center}
-$ \underline{deg} = 3 $ - оскільки $ |\{a^3\}| = |\{a^2,b\}| = |\{a^2,c\}| = |\{a,b,c\}| = ... $
+$ \underline{deg} = 4 $ - оскільки $ |\{a^3b\}| = |\{a^3,c\}| = |\{a^3,d\}| = |\{a,b,c,d\}| = 4 $
 \\
-$ \overline{deg} = |A| - 2 = 4 $, $ |A| = 6, |\{a^2\}| = |\{a,b\}| = |\{b,c\}| =  |\{a,c\}| = ... = 2 $
+$ \overline{deg} = |A| - 3 = 3 $, $ |A| = 6, |\{a^3\}| = |\{a^2,b\}| = ... = 3 $
 \end{center}
 Розв'яжемо систему лінійних рівнянь за допомогою метода Гауса, запрограмованого на мові програмування Java. У програму треба ввести коефіцієнти при кожній змінній та рівняння по кожній змінній. Нижче записана система лінійних рівнянь та її розв'язок. Як можна побачити усі коефіцієнти невід'ємні та задовольняють умови {\bf Теореми 1}.
 \begin{center}
 $\left \{
 \begin{tabular}{ccc}
-x + y = 4 \\
-x + m = 3 \\ 
-p + y = 3 \\
-m + n = 4 \\
-p + k = 4 \\
-k + p = 4 \\
-p + v = 3 \\ 
-t + b = 3 \\
-b + l + t = 4 \\ 
-i + l = 3 \\
-i + o = 4 \\
-y + t = 3 
+x + z = 4 \\
+z = 3 \\ 
+x + y + m = 3 \\
+y + k = 4 \\
+v + m = 4 \\
+i + p + s = 4 \\
   \end{tabular}
 \Rightarrow 
 $
 $\left \{
 \begin{tabular}{ccc}
-x = 2 \\
-y = 2 \\
-m = 1 \\ 
-p = 1 \\
-n = 3 \\
-k = 3 \\
-v = 2 \\ 
-t = 1 \\
-b = 2 \\
-l = 1 \\ 
-i = 2 \\
-o = 2 \\
+x = 1 \\
+y = 1 \\
+k = 3 \\ 
+m = 1 \\
+v = 3 \\
+i = 0 \\
+p = 0 \\ 
+s = 0 \\
+z = 3 \\
   \end{tabular}
 $
 \end{center}
@@ -1022,45 +1007,136 @@ $
 
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
-\node[main] (1) {$a^2$}; 
-\node[main] (2) [right of=1] {$ab$}; 
-\node[main] (3) [right of=2] {$b^2$}; 
-\node[main] (4) [right of=3] {$bc$}; 
-\node[main] (5) [right of=4] {$c^2$}; 
-\node[main] (6) [right of=5] {$ac$}; 
+\node[main] (1) {$a^3$}; 
+\node[main] (2) [right of=1] {$a^2b$}; 
+\node[main] (3) [right of=2] {$a^2c$}; 
+\node[main] (4) [right of=3] {$a^2d$}; 
+\node[main] (5) [right of=4] {$abc$}; 
+\node[main] (6) [right of=5] {$abd$}; 
+\node[main] (7) [right of=6] {$bdc$}; 
 
-\node[main] (7) [below of=1] {$a^2b$}; 
-\node[main] (8) [below of=2] {$a^2c$}; 
-\node[main] (9) [below of=3] {$b^2a$}; 
-\node[main] (10) [below of=4] {$b^2c$}; 
-\node[main] (11) [below of=5] {$c^2a$}; 
-\node[main] (12) [below of=6] {$c^2b$};
-\node[main] (13) [right of=12] {$abc$}; 
+\node[main] (8) [below of=1] {$a^3b$}; 
+\node[main] (9) [below of=2] {$a^3c$}; 
+\node[main] (10) [below of=3] {$a^3d$}; 
+\node[main] (11) [below of=4] {$abcd$}; 
  
 
-\draw (1) -- node[pos=0.25, left] {$2$} (7); 
-\draw (1) -- node[pos=0.4, above] {$2$} (8); 
+\draw (1) -- node[pos=0.25, left] {$1$} (8); 
+\draw (1) -- node[pos=0.4, above] {$1$} (9); 
+\draw (1) -- node[pos=0.4, above] {$3$} (10); 
 
-\draw (2) -- node[pos=0.4, right] {$1$}(7); 
-\draw (2) -- node[pos=0.4, above] {$3$}(9); 
+
+\draw (2) -- node[pos=0.4, right] {$1$}(8); 
 
 \draw (3) -- node[pos=0.4, right] {$3$}(9); 
-\draw (3) -- node[pos=0.4, above] {$1$}(10); 
 
-\draw (4) -- node[pos=0.4, left] {$2$}(10); 
-\draw (4) -- node[pos=0.1, right] {$1$}(13); 
+\draw (4) -- node[pos=0.4, left] {$3$}(10); 
 
-\draw (5) -- node[pos=0.4, right] {$2$}(11); 
-\draw (5) -- node[pos=0.4, above] {$2$}(12); 
-
-\draw (6) -- node[pos=0.4, below] {$1$}(8); 
-\draw (6) -- node[pos=0.4, right] {$1$}(11); 
-\draw (6) -- node[pos=0.4, right] {$2$}(13); 
+\draw (5) -- node[pos=0.4, right] {$0$}(11); 
+\draw (6) -- node[pos=0.4, below] {$0$}(11); 
+\draw (7) -- node[pos=0.4, below] {$0$}(11); 
 
 
 \end{tikzpicture} 
 \end{center}
 
+
+\section{Частковий випадок $A = \{a^2, b^2, c, d\}$}
+
+Розглянемо наступний випадок мультимножини виду $A = \{a^2, b^2, c, d\}$, яка задовольняє умови {\bf Теореми 1}. На елементи накладаються деякі обмеження, а саме потужність усіх елементів рівна, а кратність одного елемента три.
+
+\begin{example}
+
+Розглянемо множину $A = \{a^2, b^2, c, d\}$, збудуємо наповнення триелементного сімейства невключних одна в одну множин, які добудуємо до чотириелементного сімейства:
+
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2b^2$}; 
+\node[main] (2) [right of=1] {$a^2cd$}; 
+\node[main] (3) [right of=2] {$b^2cd$}; 
+\node[main] (4) [right of=3] {$abcd$}; 
+
+\node[main] (5) [below of=1] {$a^2b^2c$}; 
+\node[main] (6) [below of=2] {$a^2b^2d$}; 
+\node[main] (7) [below of=3] {$a^2bcd$}; 
+\node[main] (8) [below of=4] {$b^2acd$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$x$} (5); 
+\draw (1) -- node[pos=0.4, above] {$y$} (6); 
+
+\draw (2) -- node[pos=0.4, right] {$z$}(7); 
+
+
+\draw (3) -- node[pos=0.4, dbove] {$k$}(8); 
+
+\draw (4) -- node[pos=0.4, left] {$v$}(8);
+\draw (4) -- node[pos=0.4, dbove] {$v$}(7); 
+
+\end{tikzpicture} 
+\end{center}
+\end{example}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 4 $ - оскільки $ |\{a^3b\}| = |\{a^3,c\}| = |\{a^3,d\}| = |\{a,b,c,d\}| = 4 $
+\\
+$ \overline{deg} = |A| - 3 = 3 $, $ |A| = 6, |\{a^3\}| = |\{a^2,b\}| = ... = 3 $
+\end{center}
+Розв'яжемо систему лінійних рівнянь за допомогою метода Гауса, запрограмованого на мові програмування Java. У програму треба ввести коефіцієнти при кожній змінній та рівняння по кожній змінній. Нижче записана система лінійних рівнянь та її розв'язок. Як можна побачити усі коефіцієнти невід'ємні та задовольняють умови {\bf Теореми 1}.
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 2 \\
+x = 5 \\ 
+y = 5 \\
+z + k = 5 \\ 
+n + m = 5 \\
+z = 2 \\
+m = 2 \\
+  \end{tabular}
+\Rightarrow 
+$
+$\left \{
+\begin{tabular}{ccc}
+x = 5 \\
+y = 5 \\
+z = 0 \\ 
+k = 5 \\
+n = 5 \\
+m = 0 \\
+  \end{tabular}
+$
+\end{center}
+
+Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
+
+
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2b^2$}; 
+\node[main] (2) [right of=1] {$a^2cd$}; 
+\node[main] (3) [right of=2] {$b^2cd$}; 
+\node[main] (4) [right of=3] {$abcd$}; 
+
+\node[main] (5) [below of=1] {$a^2b^2c$}; 
+\node[main] (6) [below of=2] {$a^2b^2d$}; 
+\node[main] (7) [below of=3] {$a^2bcd$}; 
+\node[main] (8) [below of=4] {$b^2acd$}; 
+ 
+
+\draw (1) -- node[pos=0.25, left] {$5$} (5); 
+\draw (1) -- node[pos=0.4, above] {$5$} (6); 
+
+\draw (2) -- node[pos=0.4, right] {$0$}(7); 
+
+\draw (3) -- node[pos=0.4, left] {$5$}(8); 
+
+\draw (4) -- node[pos=0.4, left] {$0$}(8);
+\draw (4) -- node[pos=0.4, right] {$0$}(7); 
+
+\end{tikzpicture} 
+\end{center}
 
 
 \section{Статистичний аналіз розміру антиланцюга}
@@ -1103,7 +1179,6 @@ $D_{l+1}^k = D_l^k + D_l^{k-1} + ... + D_l^{k-m_{l+1}}$
 \end{center}
 
 У формулі наведеній вижче кожен доданок виду $D_l^{k-l}$ ставиться у відповідність підмножинам, в яких кратність елемента $a_{l+1}$ дорівнює $b$ ($0 \leq b \leq m_{l+1} $).
-\newpage
 Розглянемо простий випадок:
 \begin{center}
 $k \leq m_1,..., k \leq  m_n$
@@ -1200,11 +1275,6 @@ $\overline{M} = \{a_1^{x_1}, ... , a_{n-1}^{x_{n-1}}\} $
 ^{k-1} + ... + D_{\overline{|M|}}^{k-x} = 0  $, враховуючи, що $D_{|M|}^k  = D_{|M|}^{\overline{|M|} - k}$. 
 \\
 Доведення по індукції: $D_{|M|}^k  = D_{\overline{|M|}}^{k-b_n} + ... + D_{\overline{|M|}}^k$, де $\overline{M} = D \setminus {a_n^{b_n}}$.
-
-
-
-
-
 
 \end{proof}
 \newpage
