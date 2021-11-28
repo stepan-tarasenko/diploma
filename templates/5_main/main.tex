@@ -118,7 +118,7 @@ $ G(V,E)=\left\langle V,E\right\rangle ,\quad V\neq \varnothing ,\quad E\subsete
 
 \begin{example}
 Розглянемо приклад простого графу: \\ $ V = \{1,2,3,4,5,6\}$ \\ $ E = \{ (1,2), (1,5), (5,2), (5,4), (2,3), (3,4), (4,6) \} $
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}
   [scale=.8,auto=left,every node/.style={draw, circle}]
@@ -134,11 +134,13 @@ $ G(V,E)=\left\langle V,E\right\rangle ,\quad V\neq \varnothing ,\quad E\subsete
 
 \end{tikzpicture}
 \end{center}
+\caption{приклад простого графу}
+\end{figure}
 \end{example}
 
 \begin{example}
 Розглянемо приклад дводольного графу: \\ $ V = \{1,2,3,4,5,6\}$ \\ $ E = \{ (1,4), (1,5), (2,4), (2,6), (3,5), (3,6) \} $
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={40mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$1$}; 
@@ -156,6 +158,8 @@ $ G(V,E)=\left\langle V,E\right\rangle ,\quad V\neq \varnothing ,\quad E\subsete
 \draw (3) -- (6); 
 \end{tikzpicture} 
 \end{center}
+\caption{приклад дводольного графу}
+\end{figure}
 У даному випадку ми можемо розділити множину вершин на дві:
 \begin{center}
 $V = U \cup P, P = \{1,2,3\}$ та $U = \{4,5,6\}$.
@@ -185,7 +189,7 @@ $A = \{z^m,x^m\}, B = \{w_0^{2}, w_1,...,w_n\}$
 \begin{example}
 
 Розглянемо множину $ A = \{2,3,4\} $, збудуємо наповнення одноелементного сімейства невключних одна в одну множин, які добудуємо до двоелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$\{2\}$}; 
@@ -203,6 +207,8 @@ $A = \{z^m,x^m\}, B = \{w_0^{2}, w_1,...,w_n\}$
 \draw (3) -- (6); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини $ A = \{2,3,4\}$}
+\end{figure}
 \end{example}
 
 Ідея полягає в тому, щоб перенести підхід паросполучення використовуючи вагові коефіцієнти.
@@ -219,7 +225,7 @@ $ \overline{deg} = n - t $
 \begin{example}
 
 Розглянемо множину $ A = \{2^3,3^2\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$\{2^2\}$}; 
@@ -236,7 +242,8 @@ $ \overline{deg} = n - t $
 \draw (3) -- node[left] {3} (6); 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини $ A = \{2,3,4\}$}
+\end{figure}
 \end{example}
 
 \newpage
@@ -244,7 +251,7 @@ $ \overline{deg} = n - t $
 \begin{example}
 
 Розглянемо множину $ A = \{2^3,3^3\} $, також збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$\{2^2\}$}; 
@@ -263,6 +270,8 @@ $ \overline{deg} = n - t $
 \draw (3) -- node[left]  {3} (7); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини $  A = \{2^3,3^3\} $}
+\end{figure}
 \end{example}
 
 Тобто обрахунок ведеться за допомогою формул:
@@ -284,6 +293,7 @@ $ \overline{deg} = |A| - 2 = 3 $ - оскільки $ |A| = 5, |\{2^2\}| = |\{2,
 \end{center}
 Далі складається система лінійних рівнянь:
 
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$\{2^2\}$}; 
@@ -300,6 +310,8 @@ $ \overline{deg} = |A| - 2 = 3 $ - оскільки $ |A| = 5, |\{2^2\}| = |\{2,
 \draw (3) -- node[left] {$n$} (6); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини $  A = \{2^3,3^3\} $}
+\end{figure}
 \begin{center}
 $\left \{
 \begin{tabular}{ccc}
@@ -330,7 +342,7 @@ $ \underline{deg} = 3 $ - оскільки $ |\{2^3\}| = |\{2^2,3\}| = |\{3^3\}|
 $ \overline{deg} = |A| - 2 = 4 $ - оскільки $ |A| = 6, |\{2^2\}| = |\{2,3\}| = |\{3^2\}| = 2 $
 \end{center}
 Далі складається система лінійних рівнянь:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$\{2^2\}$}; 
@@ -349,6 +361,8 @@ $ \overline{deg} = |A| - 2 = 4 $ - оскільки $ |A| = 6, |\{2^2\}| = |\{2,
 \draw (3) -- node[left]  {$n$} (7); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини $  A = \{2^3,3^3\} $}
+\end{figure}
 
 \begin{center}
 $\left \{
@@ -378,6 +392,11 @@ $
 
 Таким способом у бакалаврській роботі було доведено випадки $A = \{z^m,x^m\}, B = \{w_0^{2}, w_1,...,w_n\}$. У наступному розділі буде розглянуто декілька інших часткових випадків, для яких буде доведено {\bf Теорему 1}, та будуть записані явні формули обрахунку вагів для графу. За допомогою цих формул можна переконатись, що паросполучення існує і побудувати його явно. Таким чином доводиться для множин мультимножинної природи справедливість {\bf Теореми 1}. Прикладе застосування математичних об'єктів, які задовольняють умови теореми буде описано у роздулах пізніше.
 
+\textbf{Висновок до розділу 1}
+
+	Розглянуто необхідний математичний апарат, необхідний для розв'язку поставленої задачі. Сформовано твердження ускладненого випадку теореми. Запропоновано підхід для доведення та показано матеріали, які вже були представдені у мохй бакалаврській роботі.
+	
+	
 \newpage
 
 \chapter{Часткові випадки теореми}
@@ -455,6 +474,7 @@ $
 \end{center}
 
 Для випадку коли  вага ребра дорівнює $ 0 $, виключаємо таке ребро із графу, тобто отримали повне паросполучення:
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -472,11 +492,12 @@ $
 \draw (4) -- node[pos=0.4, right] {$v = 3$}(8); 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини $ A = \{a^3, b, c\}$}
+\end{figure}
 
 
 Розглянемо множину $ A = \{a^4, b, c\} $, так само збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -500,6 +521,8 @@ $
 \draw (4) -- node[pos=0.4, right] {$v$}(8); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^4, b, c\} $}
+\end{figure}
 
 Так само як для попереднього випадку:
 \begin{center}
@@ -539,6 +562,7 @@ $
 \end{center}
 
 Для випадку коли  вага ребра дорівнює $ 0 $, ми виключаємо таке ребро із графу, тобто ми отримали повне паросполучення:
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -556,6 +580,8 @@ $
 \draw (4) -- node[pos=0.4, right] {$v = 3$}(8); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^4, b, c\} $}
+\end{figure}
 
 Ми отримали точно такий же граф, як і у попередньому випадку, навіть з такими же вагами. Давайте спробуємо узагальнити підхід для випадку коли $ A = \{a^m, b, c\} $. Я буду спиратись на твердження, яке було доведене у моїй бакалаврській роботі:
 
@@ -569,7 +595,7 @@ $ C_n^{k} \leq C_n^{k+1} $, для випадку коли $ k < [n/2]$, де $n
 
 
 Розглянемо множину $ A = \{a^m, b, c\} $:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={50mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^{[m/2]}$}; 
@@ -593,6 +619,8 @@ $ C_n^{k} \leq C_n^{k+1} $, для випадку коли $ k < [n/2]$, де $n
 \draw (4) -- node[pos=0.4, right] {$v$}(8); 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^m, b, c\} $}
+\end{figure}
 \end{example}
 
 Так само як для попереднього випадку:
@@ -674,7 +702,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^2, b^2, c\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -710,6 +738,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^2, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -754,7 +784,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -790,7 +820,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини  $ A = \{a^2, b^2, c\} $}
+\end{figure}
 
 \section{Частковий випадок $A = \{a^2, b^2, c^2\}$}
 Розглянемо наступний випадок мультимножини виду $A = \{a^2, b^2, c^2\}$, яка задовольняє умови {\bf Теореми 1}. На елементи накладаються деякі обмеження, а саме потужність усіх елементів рівна, оскільки при $ m = 1 $ висхідна множина втрачає мультимножинні властивості.
@@ -799,6 +830,7 @@ $
 
 Розглянемо множину $ A = \{a^2, b^2, c^2\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
 
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -839,6 +871,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^2, b^2, c^2\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -885,7 +919,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -926,6 +960,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^2, b^2, c^2\} $}
+\end{figure}
 
 
 \section{Частковий випадок $A = \{a^3, b, c, d\}$}
@@ -935,7 +971,7 @@ $
 \begin{example}
 
 Розглянемо множину $A = \{a^3, b, c, d\}$, збудуємо наповнення триелементного сімейства невключних одна в одну множин, які добудуємо до чотириелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^3$}; 
@@ -970,6 +1006,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^3, b, c, d\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1007,7 +1045,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={25mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^3$}; 
@@ -1042,6 +1080,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^3, b, c, d\} $}
+\end{figure}
 
 
 \section{Частковий випадок $A = \{a^2, b^2, c, d\}$}
@@ -1051,7 +1091,7 @@ $
 \begin{example}
 
 Розглянемо множину $A = \{a^2, b^2, c, d\}$, збудуємо наповнення триелементного сімейства невключних одна в одну множин, які добудуємо до чотириелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2b^2$}; 
@@ -1078,6 +1118,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $A = \{a^2, b^2, c, d\}$}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1114,7 +1156,7 @@ $
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
 
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2b^2$}; 
@@ -1140,7 +1182,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини  $A = \{a^2, b^2, c, d\}$}
+\end{figure}
 
 \section{Частковий випадок $A = \{a^3, b^2, c\}$}
 
@@ -1149,7 +1192,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^3, b^2, c\} $, збудуємо наповнення 2-елементного сімейства невключних одна в одну множин, які добудуємо до 3-елементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1185,6 +1228,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $A = \{a^3, b^2, c\}$}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1229,7 +1274,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1265,6 +1310,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $A = \{a^3, b^2, c\}$}
+\end{figure}
 
 
 \section{Частковий випадок $A = \{a^4, b^2, c\}$}
@@ -1275,7 +1322,7 @@ $
 
 % Here we'll start 7 examples 
 Розглянемо множину $ A = \{a^4, b^2, c\} $, збудуємо наповнення 2-елементного сімейства невключних одна в одну множин, які добудуємо до 3-елементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1311,6 +1358,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^4, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1355,7 +1404,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1391,6 +1440,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^4, b^2, c\} $}
+\end{figure}
 
 \section{Частковий випадок $A = \{a^5, b^2, c\}$}
 
@@ -1398,7 +1449,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^5, b^2, c\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1434,6 +1485,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^5, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1478,7 +1531,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1514,7 +1567,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини  $ A = \{a^5, b^2, c\} $}
+\end{figure}
 
 \section{Частковий випадок $A = \{a^6, b^2, c\}$}
 
@@ -1523,7 +1577,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^6, b^2, c\} $, збудуємо наповнення 2-елементного сімейства невключних одна в одну множин, які добудуємо до 3-елементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1559,6 +1613,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^6, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1603,7 +1659,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від 2-елементних мультипідмножин до 3-елементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1639,7 +1695,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
-
+\caption{граф з вагами, для мультимножини  $ A = \{a^6, b^2, c\} $}
+\end{figure}
 
 \section{Частковий випадок $A = \{a^7, b^2, c\}$}
 
@@ -1648,7 +1705,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^7, b^2, c\} $, збудуємо наповнення 2-елементного сімейства невключних одна в одну множин, які добудуємо до 3-елементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1684,6 +1741,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^7, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1728,7 +1787,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1764,6 +1823,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^7, b^2, c\} $}
+\end{figure}
 
 
 \section{Частковий випадок $A = \{a^8, b^2, c\}$}
@@ -1773,7 +1834,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^8, b^2, c\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1809,6 +1870,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^8, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1853,7 +1916,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1889,6 +1952,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^8, b^2, c\} $}
+\end{figure}
 
 
 \section{Частковий випадок $A = \{a^9, b^2, c\}$}
@@ -1898,7 +1963,7 @@ $
 \begin{example}
 
 Розглянемо множину $ A = \{a^9, b^2, c\} $, збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -1934,6 +1999,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^9, b^2, c\} $}
+\end{figure}
 \end{example}
 
 Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
@@ -1978,7 +2045,7 @@ $
 \end{center}
 
 Отже отримали зважений граф при переході від двоелементних мультипідмножин до триелементних мультипідмножин:
-
+\begin{figure}
 \begin{center}
 \begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
 \node[main] (1) {$a^2$}; 
@@ -2014,8 +2081,8 @@ $
 
 \end{tikzpicture} 
 \end{center}
-
-
+\caption{граф з вагами, для мультимножини  $ A = \{a^9, b^2, c\} $}
+\end{figure}
 
 
 \section{Статистичний аналіз розміру антиланцюга}
@@ -2156,6 +2223,16 @@ $\overline{M} = \{a_1^{x_1}, ... , a_{n-1}^{x_{n-1}}\} $
 Доведення по індукції: $D_{|M|}^k  = D_{\overline{|M|}}^{k-b_n} + ... + D_{\overline{|M|}}^k$, де $\overline{M} = D \setminus {a_n^{b_n}}$.
 
 \end{proof}
+
+Для підрахунку більш складних випадків, коли кількість елементів у мультимножині довільна та потужність кожного елемента теж довільна, можна використати формулу включень та виключень задля вирішення задачі, тобто обрахунок для кожного елемента ведеться для тих мультипідмножин яким він належить та з яких виключається, щоб виключити повтори:
+\begin{center}
+${\displaystyle \left|\bigcup _{i=1}^{n}A_{i}\right|=\sum _{k=1}^{n}(-1)^{k+1}\left(\sum _{1\leqslant i_{1}<\cdots <i_{k}\leqslant n}|A_{i_{1}}\cap \cdots \cap A_{i_{k}}|\right)}$
+\end{center}
+
+
+\textbf{Висновок до розділу 2}
+
+	Розглянуто та доведено частинні випадки, які задовольняють умови теореми. Розглянуто та запропоновано можливість статистичного обрахунку потужності сімейства невкладених одна в одну мультипідмножин. Запропоновано нові можливості доведення ускладнених випадків теореми та розширено частинні випадки, які можна використовувати для прикладних задач.
 \newpage
 
 \chapter{Практичне застосування}
@@ -2192,3 +2269,6 @@ $ \forall K \subset L: F(K) = 0$
 
 \section{Сильні та слабкі групи}
 
+\textbf{Висновок до розділу 3}
+
+	Розглянуто прикладні можливості застосування теореми у задачах: "Теорія Голосувань", "Балансування на графі" та "Сильні та Слабкі групи". Приведено приклади застосування теореми для цих задач. Наведено та описано сутність задач та їх важливість у повсякденному світі. Розглянуто застосування доведених частинних випадків для наведених задач.
