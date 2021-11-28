@@ -249,7 +249,6 @@ $ \overline{deg} = n - t $
 \newpage
 
 \begin{example}
-
 Розглянемо множину $ A = \{2^3,3^3\} $, також збудуємо наповнення двоелементного сімейства невключних одна в одну множин, які добудуємо до триелементного сімейства:
 \begin{figure}
 \begin{center}
@@ -2267,7 +2266,289 @@ $ \forall K \subset L: F(K) = 0$
 
 Проблему максимального потоку можна розглядати як окремий випадок більш складних проблем, таких як проблема циркуляції. Максимальне значення потоку дорівнює мінімальній пропускній здатності розрізу у мережі, як зазначено в мінімальному максимальному потоку. З точки зору задачі, яка розгядається у даній роботі, ми розглянемо частковий випадок транспортної задачі, де роль пунктів  заїзду (доставки) товарів відіграють долі двочасткового графу. Задача є виокремленою чатиною та є підмножиною загальних транспортих задач.
 
+Розглянемо застосування даного способу балансування графу на прикладі:
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$  $}; 
+\node[main] (2) [right of=1] {$  $}; 
+\node[main] (3) [right of=2] {$  $}; 
+\node[main] (4) [below of=1] {$  $}; 
+\node[main] (5) [below of=2] {$  $};
+\node[main] (6) [below of=3] {$  $}; 
+\node[main] (7) [right of=6] {$  $}; 
+
+\draw (1) -- node[left]  {$x$} (4); 
+\draw (1) -- node[above] {$y$} (5); 
+\draw (2) -- node[left]  {$z$} (5); 
+\draw (2) -- node[above] {$k$} (6); 
+\draw (3) -- node[left]  {$m$} (6); 
+\draw (3) -- node[left]  {$n$} (7); 
+\end{tikzpicture} 
+\end{center}
+\caption{приклад системи для балансування}
+\end{figure}
+
+З моєї бакалаврської роботи відомо випадок, який було доведено, а саме $K=\{a^m,b^n\}$, тобто елемент $a$ має потужність $m$, а елемент $b$ --- $n$. Для цього випадку було отримано явний вид формул, за допомогою яких можна увантахити граф. 
+
+Тобто для системи, яка може бути представлена у вигляді двочасткового графу, де кожна доля представляє собою однотипні рівноважні вузли, іншими словами всі вузли, які належать одній долі графу - еквівалентні та мають одну вагу. Для прикладу це можуть бути джерелами споживання напруги, а ребра - це проводи з відповідними коефіцієнтами опору (дуже грубий приклад). Тоді можна відповідно вирішивши систему рівнянь, перед цим задавши ступені для верхньої та нижньої долі, отримати навантаження для кожногоребра задля балансування графу. Отже, якщо взяти за приклад мультимножину, для якох вже було доведено ускладнений випадок теореми, та обрахувати ступені вхождення для кожної долі, можна отримати зважену систему. Тож розглянемо приклад:
+
+Нехай $K = \{2,2,2,3,3\}$, тобто множина $ K \subseteq \{a^m,b^n\}$.
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$2^2$}; 
+\node[main] (2) [right of=1] {$2 3$}; 
+\node[main] (3) [right of=2] {$3^2$}; 
+\node[main] (4) [below of=1] {$2^3$}; 
+\node[main] (5) [below of=2] {$2^2 3$};
+\node[main] (6) [below of=3] {$3^2 2$}; 
+
+\draw (1) -- node[left]  {$x$} (4); 
+\draw (1) -- node[above] {$y$} (5); 
+\draw (2) -- node[left]  {$z$} (5); 
+\draw (2) -- node[above] {$k$} (6); 
+\draw (3) -- node[left]  {$m$} (6); 
+\end{tikzpicture} 
+\end{center}
+\caption{приклад системи для балансування}
+\end{figure}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{2^2\}| = |\{2,3\}| = |\{3^2\}| = 3 $
+\\
+$ \overline{deg} = |K| - 2 = 3 $, $ |K| = 5, |\{3^2,2\}| = |\{2^2,3\}| = |\{b,c\}| =  |\{2^3\}| = 3 $
+\end{center}
+
+Як можна бачити отримали $ \underline{deg} = \overline{deg} = 3 $, задля зручності можна розілити отримані коефіцієнти на $3$, тобто потужності ступенів входу у верхню та нижню долі дорівнюють одиниці.
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 1  \\
+y + z = 1 \\ 
+z + k = 1 \\ 
+k + m = 1 \\ 
+\end{tabular}
+$
+\end{center}
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x = 1  \\
+y = 0 \\ 
+z = 1 \\ 
+k = 0 \\
+m = 1 \\ 
+\end{tabular}
+$
+\end{center}
+
+
+Нехай $K = \{2,2,2,3,3,3\}$, тобто множина $ K \subseteq \{a^m,b^n\}$.
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$2^2$}; 
+\node[main] (2) [right of=1] {$2 3$}; 
+\node[main] (3) [right of=2] {$3^2$}; 
+\node[main] (4) [below of=1] {$2^3$}; 
+\node[main] (5) [below of=2] {$2^2 3$};
+\node[main] (6) [below of=3] {$3^2 2$}; 
+\node[main] (7) [right of=6] {$3^3$}; 
+
+
+\draw (1) -- node[left]  {$x$} (4); 
+\draw (1) -- node[above] {$y$} (5); 
+\draw (2) -- node[left]  {$z$} (5); 
+\draw (2) -- node[above] {$k$} (6); 
+\draw (3) -- node[left]  {$m$} (6); 
+\draw (3) -- node[left]  {$p$} (7); 
+
+\end{tikzpicture} 
+\end{center}
+\caption{приклад системи для балансування}
+\end{figure}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{2^2\}| = |\{2,3\}| = |\{3^2,2\}| = 3 $
+\\
+$ \overline{deg} = |K| - 2 = 4 $, $ |K| = 6, |\{3^2,2\}| = |\{2^2,3\}| = |\{b,c\}| =  |\{2^3\}| = 3 $
+\end{center}
+
+Як можна бачити отримали $ \underline{deg}  = 3, \overline{deg} = 4 $, задля зручності можна розілити отримані коефіцієнти на $3$, тобто потужності ступенів входу у верхню та нижню долі дорівнюють одиниці.
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 4  \\
+y + z = 3 \\ 
+z + k = 4 \\ 
+k + m = 3 \\ 
+m + p = 4 \\ 
+p = 3 \\
+\end{tabular}
+$
+\end{center}
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x = 3  \\
+y = 1 \\ 
+z = 2 \\ 
+k = 2 \\
+m = 1 \\ 
+p = 3 \\
+\end{tabular}
+$
+\end{center}
+
+Таким же чином можна застосувати даний тип увантаження на часткових випадках, які були доведені вище, наприклад:
+
+Для системи, яка має вигляд, або описується множиною  $ A = \{a^9, b^2, c\} $, задано граф, який явно можна увантажити:
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$ac$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$b^2$}; 
+
+\node[main] (6) [below of=1] {$a^2b$}; 
+\node[main] (7) [below of=2] {$a^2c$}; 
+\node[main] (8) [below of=3] {$b^2a$}; 
+\node[main] (9) [below of=4] {$b^2c$}; 
+\node[main] (10) [below of=5] {$abc$}; 
+
+ 
+
+\draw (1) -- node[pos=0.25, left] {$x$} (6); 
+\draw (1) -- node[pos=0.4, above] {$y$} (7); 
+
+\draw (2) -- node[pos=0.4, right] {$m$}(6); 
+\draw (2) -- node[pos=0.4, above] {$n$}(8); 
+\draw (2) -- node[pos=0.4, right] {$l$}(10); 
+
+
+\draw (3) -- node[pos=0.4, right] {$k$}(7); 
+\draw (3) -- node[pos=0.4, above] {$p$}(10); 
+
+\draw (4) -- node[pos=0.1, right] {$t$}(9); 
+\draw (4) -- node[pos=0.4, above]  {$v$}(10); 
+
+\draw (5) -- node[pos=0.4, right] {$i$}(8); 
+\draw (5) -- node[pos=0.4, above] {$o$}(9); 
+
+\end{tikzpicture} 
+\end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^9, b^2, c\} $}
+\end{figure}
+\end{example}
+
+Так само, як і у випадках раніше підрахуємо значення вагів за формулою:
+\begin{center}
+$ \underline{deg} = 3 $ - оскільки $ |\{a^2,b\}| = |\{a^2,c\}| = |\{a,b,c\}| = ... $
+\\
+$ \overline{deg} = |A| - 2 = 3 $, $ |A| = 5, |\{a^2\}| = |\{a,b\}| = |\{b,c\}| =  |\{a,c\}| = ... = 2 $
+\end{center}
+
+\begin{center}
+$\left \{
+\begin{tabular}{ccc}
+x + y = 3 \\
+x + m = 3 \\ 
+k + y = 3 \\
+m + n + l = 3 \\
+p + k = 3 \\
+n + i = 3 \\
+t + v = 3 \\ 
+t + b = 3 \\
+p + l + v = 3 \\ 
+i + l = 3 \\
+t + o = 3 \\
+  \end{tabular}
+\Rightarrow 
+$
+$\left \{
+\begin{tabular}{ccc}
+x = 2 \\
+y = 1 \\
+m = 1 \\ 
+p = 1 \\
+n = 2 \\
+k = 2 \\
+v = 2 \\ 
+t = 1 \\
+l = 0 \\ 
+i = 1 \\
+o = 2 \\
+  \end{tabular}
+$
+\end{center}
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[node distance={30mm}, main/.style = {draw, circle}] 
+\node[main] (1) {$a^2$}; 
+\node[main] (2) [right of=1] {$ab$}; 
+\node[main] (3) [right of=2] {$ac$}; 
+\node[main] (4) [right of=3] {$bc$}; 
+\node[main] (5) [right of=4] {$b^2$}; 
+
+\node[main] (6) [below of=1] {$a^2b$}; 
+\node[main] (7) [below of=2] {$a^2c$}; 
+\node[main] (8) [below of=3] {$b^2a$}; 
+\node[main] (9) [below of=4] {$b^2c$}; 
+\node[main] (10) [below of=5] {$abc$}; 
+
+ 
+
+\draw (1) -- node[pos=0.25, left] {$2$} (6); 
+\draw (1) -- node[pos=0.4, above] {$1$} (7); 
+
+\draw (2) -- node[pos=0.4, right] {$1$}(6); 
+\draw (2) -- node[pos=0.4, above] {$2$}(8); 
+\draw (2) -- node[pos=0.4, right] {$0$}(10); 
+
+
+\draw (3) -- node[pos=0.4, right] {$2$}(7); 
+\draw (3) -- node[pos=0.4, above] {$1$}(10); 
+
+\draw (4) -- node[pos=0.1, right] {$1$}(9); 
+\draw (4) -- node[pos=0.4, above]  {$2$}(10); 
+
+\draw (5) -- node[pos=0.4, right] {$1$}(8); 
+\draw (5) -- node[pos=0.4, above] {$2$}(9); 
+
+\end{tikzpicture} 
+\end{center}
+\caption{граф з вагами, для мультимножини  $ A = \{a^9, b^2, c\} $}
+\end{figure}
+
+
 \section{Сильні та слабкі групи}
+
+Розглянемо  булеан множини $A = \{1,...,n\}$ та позначимо його як $2^A$, тоді цей булеан можна розбити на два класи $X$ та $Y$, причому:
+
+\begin{center}
+$X \cup Y = 2^A$
+\\
+$X \cap Y = \emptyset $
+\\
+$\forall N \in X \forall M \in Y: N \nsubset M  $     
+\end{center}
+
+Розглянемо сімейство $K$ min сильних підмножин, тобто всіх таких $N ∈ X$, що $ Y \nexists N \in X : Y ⊂ X$. Будь-яке розбиття $(X,Y)$ задає набір $K$. Тобто, за допомогою доведення ускладненого випадку теореми, отримано можливість оцінити розмір сімейства $K$.
 
 \textbf{Висновок до розділу 3}
 
